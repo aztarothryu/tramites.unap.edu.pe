@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Seguimiento Trámite</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="jm77Q5c0y3qvszOXEwPiW59g9hqU7joppA56dmTq">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- reCAPTCHA API -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <style type="text/css">
+        #pr-constancia { color: #80c032; }
+        .contain { padding-top: 20px; }
+        .tramite { height: 90%; padding-bottom: 40px; }
+        .tramite-estado {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .tramite-estado .item {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .tramite-estado .item .label {
+            width: 40%;
+            text-align: right;
+            padding: 0 10px 0 0;
+        }
+        .tramite-estado .item .value {
+            width: 60%;
+            text-align: left;
+        }
+        @media (max-width: 768px) {
+            .tramite-estado .item .label,
+            .tramite-estado .item .value {
+                width: 100%;
+                text-align: start;
+                padding: 0;
+            }
+        }
+        .g-recaptcha { 
+            margin: 15px 0;
+            transform: scale(0.9);
+            transform-origin: 0 0;
+        }
+        #captcha-error { 
+            color: red; 
+            display: none;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .alert-warning {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+    
+<body>
+    <header>
+        <div class="header bg-secondary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 text-md-right text-center">
+                        <div class="float-left">              
+                        </div>
+                        <a href="../login.html" class="text-decoration-none text-primary link-white">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                            Intranet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 text-md-left text-center">
+                        <div class="float-left">
+                            <img src="../images/UNAPUNO.png" class="logo" alt="">
+                            <div class="text-center" style="display: inline-block; vertical-align: bottom; margin-left: 10px;">
+                                <b class="font-weight-bold text-dark" style="margin:0;">Universidad Nacional del Altiplano</b>
+                                <p class="text-gray" style="margin:0; font-size: 13px;">Vicerrectorado Académico</p>
+                                <b class="text-gray" style="margin:0; font-size: 13px;">Oficina de Registro y Archivo Académico</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" style="padding: 0;">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="../index.html"><i class="fa fa-home"></i></a>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <div class="divider-nav d-sm-none d-md-block"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tramite" href="../tramite.html">Trámites</a>
+                    </li>
+                    <div class="divider-nav d-sm-none d-md-block"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tarifa" href="../tarifas.html">Tarifas</a>
+                    </li>
+                    <div class="divider-nav d-sm-none d-md-block"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" id="seguir" href="ver-estado-tramite.html">Seguimiento</a>
+                    </li>
+                    <div class="divider-nav d-sm-none d-md-block"></div>
+                    <div class="divider-nav d-sm-none d-md-block"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial" href="../tutoriales.html">Tutoriales</a>
+                    </li>
+                    <div class="divider-nav d-sm-none d-md-block"></div>
+                    <li class="nav-item">
+                      <a class="nav-link" id="tutorial" href="../validacion.html">Validación de Documento</a>
+                    </li>
+                    <div class="divider-nav d-sm-none d-md-block"></div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="">
+      <div class="container" style="min-height: 380px; padding-bottom: 20px;">
+        <div class="tramite">
+            <div class="row" style="margin: 10px;">
+                <div class="col-md-12">
+                    <br>
+                    <div class="row justify-content-center">
+                        <h4>Seguimiento de Trámite</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-xs-12" style="padding:0;">
+                    <div class="alert alert-info" role="alert">
+                        <small><strong>¡Atención!</strong> Las consultas del estado de trámites solo están disponibles para trámites solicitados a partir del 03/08/2020.</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-xs-12 contain">
+                    <form id="form-buscar-tramite">
+                        <div class="col-md-10 offset-md-1 col-xs-12">
+                            <div class="form-row">
+                                <label class="col-md-6 col-xs-12 control-label"><b>Ingrese el Código Único de Trámite (CUT):</b></label>
+                                <div class="col-md-3 col-xs-12">
+                                    <input type="text" class="form-control" id="cut" placeholder=" " required>
+                                </div>
+                                <div class="col-md-3 col-xs-12 float-left">
+                                    <button type="submit" class="btn btn-primary">Consultar</button>
+                                </div>
+                            </div>
+                            
+                            <!-- reCAPTCHA con tu clave -->
+                            <div class="g-recaptcha" data-sitekey="6Ld-sU0rAAAAAJ-1sIUYcN848by7E8ITw9uJR60a"></div>
+                            <div id="captcha-error" class="alert alert-danger">Por favor, complete el CAPTCHA.</div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="row" id="seguimiento" style="display: none">
+                <!-- Contenido de seguimiento existente -->
+            </div>
+            
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-xs-12" style="padding:0;">
+                    <div class="alert alert-warning" role="alert">
+                        <small><strong>Importante</strong> Si su trámite de Grado de Bachiller o Título Profesional se encuentra para Consejo Universitario en el seguimiento, consulte si ya fue aprobado, Clic en el año que corresponda 2021 ó 2022.
+                            <a href="https://transparencia.unap.edu.pe/web/relacion-de-grados-y-titulos-2022/" target="_blank"> Consultar aqui</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-secondary" style="width: 100%;">
+        <div class="bg-dark" style="margin-top: 20px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="text-white text-center"><small>© Universidad Nacional del Altiplano, Puno - Perú, 2020.</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-white text-center"><small>Oficina de Tecnologías de Información</small></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('form-buscar-tramite').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validar CAPTCHA
+            const captchaResponse = grecaptcha.getResponse();
+            if(captchaResponse.length === 0) {
+                document.getElementById('captcha-error').style.display = 'block';
+                return false;
+            }
+            document.getElementById('captcha-error').style.display = 'none';
+            
+            // Validar CUT
+            const cutValue = document.getElementById('cut').value.trim();
+            if(cutValue === '1175') {
+                window.location.href = 'expediente.html';
+            } else {
+                alert('Código incorrecto. Por favor, ingrese "1175" para continuar.');
+            }
+        });
+    </script>
+</body>
+</html>
