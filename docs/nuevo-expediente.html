@@ -208,6 +208,52 @@
     this.reset();
   });
 </script>
+<script>
+  document.getElementById("form-expediente").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const año = new Date().getFullYear();
+    let correlativo = localStorage.getItem("contadorCUT");
+
+    if (!correlativo || isNaN(correlativo)) {
+      correlativo = 1176; // Inicia después del expediente 1175
+    }
+
+    const cut = `${correlativo}-${año}`;
+    document.getElementById("cod-expediente").textContent = cut;
+    document.getElementById("acuse-box").style.display = "block";
+
+    // Capturar datos del formulario
+    const expediente = {
+      cut,
+      nombre: document.getElementById("nombre").value.trim(),
+      dni: document.getElementById("dni").value.trim(),
+      codigoAlumno: document.getElementById("codigo").value.trim(),
+      escuela: document.getElementById("escuela").value,
+      correo: document.getElementById("correo").value.trim(),
+      tramite: document.getElementById("tramite").value,
+      descripcion: document.getElementById("descripcion").value.trim(),
+      fecha: new Date().toISOString().split("T")[0],
+      archivos: []
+    };
+
+    // Capturar archivos adjuntos (solo metadatos)
+    const archivosInput = document.getElementById("archivos").files;
+    for (let i = 0; i < archivosInput.length; i++) {
+      expediente.archivos.push({
+        nombre: archivosInput[i].name,
+        tipo: archivosInput[i].type,
+        size: `${(archivosInput[i].size / 1024).toFixed(1)} KB`
+      });
+    }
+
+    // Guardar expediente en localStorage
+    localStorage.setItem("exp-" + cut, JSON.stringify(expediente));
+    localStorage.setItem("contadorCUT", Number(correlativo) + 1);
+
+    this.reset();
+  });
+</script>
 
 </body>
 </html>
