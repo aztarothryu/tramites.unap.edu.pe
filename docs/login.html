@@ -1,137 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
-  
-<!-- Mirrored from tramites.unap.edu.pe/login by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 May 2025 10:00:52 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="jm77Q5c0y3qvszOXEwPiW59g9hqU7joppA56dmTq">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Iniciar Sesión | Sistema de Trámite Documentario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/avisos.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    main {
+      max-width: 500px;
+      margin: 2em auto;
+      padding: 1em;
+      background-color: white;
+      border-radius: 6px;
+    }
+    input {
+      width: 100%;
+      padding: 0.6em;
+      margin-bottom: 1em;
+      font-size: 1em;
+    }
+    button {
+      padding: 0.6em 1.5em;
+      background-color: #005599;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
 
-    <title>Tramites | ORAA</title>
-    <link href="css/intranet/theme.css" rel="stylesheet">
-    <style>
-        .login_wrapper{
-            margin-top: 0px;
-        }
-        body {
-            background-color:#E5E9EA;
-        }
-        .login-form {
-            /* background-color: white; */
-            padding: 0;
-            border-radius: 10px;
-            margin-top: 100px;
-            -webkit-box-shadow: 0px 0px 26px -10px rgba(99,99,99,1);
-            -moz-box-shadow: 0px 0px 26px -10px rgba(99,99,99,1);
-            box-shadow: 0px 0px 26px -10px rgba(99,99,99,1);
-        }
-        .login-form .head,.form {
-            height: 100%;
-            /* margin-top: 100px; */
-        }
-        .head {
-            background-color: #172D44;
-            border-radius: 10px 0 0 10px;
-            padding-top: 30px;
-            position: relative;
-        }
-        .head p {
-            margin:0;
-        }
-        .form {
-            border-radius: 0 10px 10px 0px;
-            background-color: white;
-            padding: 50px;
-        }
-        .logo {
-            border: solid 1px #fff;
-            width: 130px;
-            height: 130px;
-            margin: 10px auto;
-            padding-top: 20px;
-            border-radius: 630px;
-            -moz-border-radius: 50%;
-            -webkit-border-radius: 50%;
-            border-style: dashed;
-        }
-        .footer {
-            position: absolute;
-            bottom: 10px;
-        }
-        .invalid-feedback {
-            display: block;
-            width: 100%;
-            margin-top: .25rem;
-            font-size: 80%;
-            color: #ea3c4c;
-        }
-    </style>
-    </head>
+  <!-- Comunicado educativo -->
+  <div class="aviso-educativo">
+    ⚠️ Este sitio web forma parte de un proyecto académico desarrollado por estudiantes de la Universidad Nacional del Altiplano. Su propósito es exclusivamente educativo y no representa una plataforma oficial ni permite realizar trámites reales.
+  </div>
 
-    <body>
+  <!-- Encabezado institucional -->
+  <header style="background-color: #003366; padding: 1em 0; color: white; text-align: center;">
+    <img src="images/UNAPUNO.png" alt="Logo UNAP" style="height: 60px; vertical-align: middle;" />
+    <h1 style="display: inline-block; margin-left: 1em; font-size: 1.5em;">Sistema de Trámite Documentario</h1>
+  </header>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3 login-form">
-                    <div class="col-md-5 head text-center d-none d-sm-block">
-                        <div class="logo">
-                            <img  src="images/UNAPUNO.png" class="img-fluid" style="width: 60%;" alt="">
-                        </div>
-                        <h5 class="text-white font-weight-bold">Trámite <span style="color: #26B99A;">Documentario</span></h5>
-                        <!-- <p class="text-white font-weight-bold">Universidad Nacional del Altiplano</p> -->
-                        <!-- <p style="color:#ccc">Vicerrectorado Académico</p> -->
-                        <p class="text-white">Oficina de Registro y Archivo Académico</p>
-                        <div class="footer">
-                            <hr>
+  <!-- Navegación principal -->
+  <nav style="background-color: #005599; padding: 0.5em; text-align: center;">
+    <a href="index.html" style="color: white; margin: 0 1em; text-decoration: none;">Inicio</a>
+    <a href="tramite.html" style="color: white; margin: 0 1em; text-decoration: none;">Trámite</a>
+    <a href="nuevo-expediente.html" style="color: white; margin: 0 1em; text-decoration: none;">Registrar Expediente</a>
+    <a href="consulta-expediente.html" style="color: white; margin: 0 1em; text-decoration: none;">Consultar</a>
+    <a href="login.html" style="color: white; margin: 0 1em; text-decoration: none;">Iniciar Sesión</a>
+    <a href="tarifas.html" style="color: white; margin: 0 1em; text-decoration: none;">Tarifas</a>
+    <a href="tutoriales.html" style="color: white; margin: 0 1em; text-decoration: none;">Tutoriales</a>
+    <a href="validacion.html" style="color: white; margin: 0 1em; text-decoration: none;">Validación</a>
+    <a href="contacto.html" style="color: white; margin: 0 1em; text-decoration: none;">Contacto</a>
+  </nav>
 
-                            <p class="font-weight-bold" style="color: #26B99A;">Oficina de Tecnologías de Información</p>
-                            <p style="color:#ccc"><small>© Universidad Nacional del Altiplano, Puno - Perú, 2020.</small></p>
+  <main>
+    <h2>Iniciar Sesión</h2>
+    <p>Acceso simulado para usuarios con correo institucional.</p>
 
-                        </div>
-                    </div>
-                    <div class="col-md-7 form">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="xs-image text-center d-block d-sm-none">
-                                        <img  src="images/UNAPUNO.png" class="img-fluid" style="width: 50%; margin-bottom: 20px;" alt="">
-                                    </div>
-                                    <h4 class="text-center">Iniciar Sesión</h4>
-                                    <br>
-                                    <form method="POST" action="https://tramites.unap.edu.pe/login">
-                                        <input type="hidden" name="_token" value="jm77Q5c0y3qvszOXEwPiW59g9hqU7joppA56dmTq">                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Correo Electrónico</label>
-                                            <input type="email" class="form-control" id="email" class="form-control " name="email" value="" required autocomplete="email" autofocus>
-                                                                                        <small id="emailHelp" class="form-text text-muted">Ingrese su correo electrónico.</small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Contraseña</label>
-                                            <input type="password" class="form-control"id="password" class="form-control " name="password" required autocomplete="current-password">
-                                                                                        <small id="emailHelp" class="form-text text-muted">Ingrese su contraseña.</small>
-                                        </div>
-                                        <div class="form-group form-check text-center">
-                                            <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
-                                            <input type="checkbox" class="i-checks" name="remember" id="remember" >
-                                            <label class="form-check-label text-secondary" for="exampleCheck1" style="margin-top: 3px;">Recordar contraseña</label>
-                                        </div>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-success">Ingresar Ahora</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <form id="form-login">
+      <label for="correo">Correo institucional</label>
+      <input type="email" id="correo" required pattern="^[a-zA-Z0-9._%+-]+@est\.unap\.edu\.pe$" placeholder="usuario@est.unap.edu.pe" />
 
-        <script src="js/intranet/theme.js"></script>
-    </body>
+      <label for="clave">Contraseña</label>
+      <input type="password" id="clave" required />
 
-<!-- Mirrored from tramites.unap.edu.pe/login by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 May 2025 10:00:52 GMT -->
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  </main>
+
+  <!-- Pie de página institucional -->
+  <footer style="background-color: #003366; color: white; text-align: center; padding: 1em; margin-top: 3em;">
+    <p style="margin: 0.5em;">© 2025 Universidad Nacional del Altiplano - Proyecto Educativo</p>
+    <p style="margin: 0;">Basado en la Ley N° 27444 y el Decreto Legislativo N° 1412</p>
+  </footer>
+
+  <script>
+    document.getElementById("form-login").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const correo = document.getElementById("correo").value.trim();
+      const clave = document.getElementById("clave").value.trim();
+
+      if (!correo.endsWith("@est.unap.edu.pe")) {
+        alert("⚠️ Solo se permite el acceso con correos institucionales (@est.unap.edu.pe).");
+        return;
+      }
+
+      if (correo && clave) {
+        alert("✅ Acceso simulado exitoso. Bienvenido al sistema educativo.");
+        this.reset();
+      }
+    });
+  </script>
+
+</body>
 </html>
