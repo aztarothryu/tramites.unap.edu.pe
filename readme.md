@@ -73,11 +73,3 @@ Puedes explorar el sistema en línea desde:
 🔗 [https://aztarothryu.github.io/tramites.unap.edu.pe/](https://aztarothryu.github.io/tramites.unap.edu.pe/)
 
 ---
-
-## 🖼️ Capturas de pantalla
-
-> (Opcional) Puedes agregar capturas subiéndolas a una carpeta como `docs/images` y enlazándolas así:
-
-```markdown
-![Formulario de registro](docs/images/formulario.png)
-![Validación de expediente](docs/images/validacion.png)
