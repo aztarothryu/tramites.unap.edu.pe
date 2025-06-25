@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar Nuevo Expediente</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/avisos.css">
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0 auto;
+      max-width: 700px;
+      padding: 1.5em;
+    }
+    label {
+      display: block;
+      margin-top: 1em;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 0.6em;
+      font-size: 1em;
+    }
+    button {
+      margin-top: 1.5em;
+      padding: 0.75em 2em;
+      font-size: 1em;
+      background-color: #005599;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .acuse {
+      background-color: #f1f1f1;
+      padding: 1em;
+      margin-top: 2em;
+      display: none;
+      border-left: 4px solid #0078D7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="aviso-educativo">
+    ⚠️ Este sitio es parte de un proyecto educativo. No representa una entidad oficial ni permite iniciar trámites reales.
+  </div>
+
+  <header style="background-color: #003366; padding: 1em 0; color: white; text-align: center;">
+    <img src="images/UNAPUNO.png" alt="Logo UNAP" style="height: 60px; vertical-align: middle;">
+    <h1 style="display: inline-block; margin-left: 1em; font-size: 1.5em;">Sistema de Trámite Documentario</h1>
+  </header>
+
+  <nav style="background-color: #005599; padding: 0.5em; text-align: center;">
+    <a href="index.html" style="color: white; margin: 0 1em; text-decoration: none;">Inicio</a>
+    <a href="nuevo-expediente.html" style="color: white; margin: 0 1em; text-decoration: none;">Registrar Expediente</a>
+    <a href="consulta-expediente.html" style="color: white; margin: 0 1em; text-decoration: none;">Consultar</a>
+    <a href="login.html" style="color: white; margin: 0 1em; text-decoration: none;">Iniciar Sesión</a>
+    <a href="contacto.html" style="color: white; margin: 0 1em; text-decoration: none;">Contacto</a>
+  </nav>
+
+  <main>
+    <h2>Registro de Nuevo Expediente</h2>
+
+    <form id="form-expediente" enctype="multipart/form-data">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" required>
+
+      <label for="dni">DNI</label>
+      <input type="text" id="dni" maxlength="8" required>
+
+      <label for="codigo">Código de alumno</label>
+      <input type="text" id="codigo" maxlength="10" required placeholder="Ej: 202312345">
+
+      <label for="escuela">Escuela profesional</label>
+      <select id="escuela" required>
+        <option value="">Seleccione su escuela profesional</option>
+        <option>Ingeniería Agronómica</option>
+        <option>Ingeniería Agroindustrial</option>
+        <option>Ingeniería Topográfica y Agrimensura</option>
+        <option>Medicina Humana</option>
+        <option>Odontología</option>
+        <option>Nutrición Humana</option>
+        <option>Enfermería</option>
+        <option>Ingeniería Civil</option>
+        <option>Ingeniería de Sistemas</option>
+        <option>Ingeniería Electrónica</option>
+        <option>Ingeniería Mecánica Eléctrica</option>
+        <option>Ingeniería Química</option>
+        <option>Ingeniería Geológica</option>
+        <option>Ingeniería Metalúrgica</option>
+        <option>Ingeniería Estadística e Informática</option>
+        <option>Ingeniería Económica</option>
+        <option>Ingeniería Agrícola</option>
+        <option>Arquitectura</option>
+        <option>Derecho</option>
+        <option>Trabajo Social</option>
+        <option>Antropología</option>
+        <option>Sociología</option>
+        <option>Turismo</option>
+        <option>Ciencias de la Comunicación Social</option>
+        <option>Educación Inicial</option>
+        <option>Educación Primaria</option>
+        <option>Educación Secundaria: Lengua y Literatura</option>
+        <option>Educación Secundaria: Matemática y Física</option>
+        <option>Educación Secundaria: Ciencias Sociales</option>
+        <option>Educación Secundaria: Ciencia, Tecnología y Ambiente</option>
+        <option>Educación Física</option>
+        <option>Biología</option>
+        <option>Física</option>
+        <option>Matemática</option>
+        <option>Contabilidad</option>
+        <option>Administración</option>
+        <option>Otros</option>
+      </select>
+
+      <label for="correo">Correo institucional</label>
+      <input type="email" id="correo"
+             pattern="^[a-zA-Z0-9._%+-]+@est\.unap\.edu\.pe$"
+             required placeholder="ejemplo@est.unap.edu.pe">
+
+      <label for="tramite">Tipo de trámite</label>
+      <select id="tramite" required>
+        <option value="">Seleccione uno</option>
+        <option>Solicitud de constancia</option>
+        <option>Petición académica</option>
+        <option>Reclamo</option>
+        <option>Solicitud de prácticas preprofesionales</option>
+        <option>Actualización de datos</option>
+        <option>Rectificación de nota</option>
+        <option>Otros</option>
+      </select>
+
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" rows="4" required></textarea>
+
+      <label for="archivos">Adjuntar archivos PDF (puede seleccionar varios)</label>
+      <input type="file" id="archivos" accept="application/pdf" multiple>
+
+      <button type="submit">Registrar expediente</button>
+    </form>
+
+    <div class="acuse" id="acuse-box">
+      <h3>✅ Expediente registrado</h3>
+      <p><strong>Código:</strong> <span id="cod-expediente"></span></p>
+      <p>Guarde este código para consultar su trámite más adelante.</p>
+    </div>
+  </main>
+
+  <footer style="background-color: #003366; color: white; text-align: center; padding: 1em; margin-top: 3em;">
+    <p style="margin: 0.5em;">© 2025 Universidad Nacional del Altiplano - Proyecto Educativo</p>
+    <p style="margin: 0;">Basado en la Ley N° 27444 y el Decreto Legislativo N° 1412</p>
+  </footer>
+
+  <script>
+    document.getElementById("form-expediente").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const uuid = 'EXP-' + Date.now().toString().slice(-6) + '-' +
+        Math.floor(Math.random()*999).toString().padStart(3, '0');
+      document.getElementById("cod-expediente").textContent = uuid;
+      document.getElementById("acuse-box").style.display = "block";
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
