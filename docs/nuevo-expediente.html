@@ -162,17 +162,25 @@
     <p style="margin: 0;">Basado en la Ley N° 27444 y el Decreto Legislativo N° 1412</p>
   </footer>
 
-  <!-- Simulación de acuse -->
-  <script>
-    document.getElementById("form-expediente").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const uuid = 'EXP-' + Date.now().toString().slice(-6) + '-' +
-        Math.floor(Math.random()*999).toString().padStart(3, '0');
-      document.getElementById("cod-expediente").textContent = uuid;
-      document.getElementById("acuse-box").style.display = "block";
-      this.reset();
-    });
-  </script>
+ <script>
+  document.getElementById("form-expediente").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const año = new Date().getFullYear();
+    let correlativo = localStorage.getItem("contadorCUT");
+
+    if (!correlativo || isNaN(correlativo)) {
+      correlativo = 1176; // Inicia después del expediente 1175
+    }
+
+    const nuevoCUT = `EXP-${correlativo}-${año}`;
+    document.getElementById("cod-expediente").textContent = nuevoCUT;
+    document.getElementById("acuse-box").style.display = "block";
+
+    localStorage.setItem("contadorCUT", Number(correlativo) + 1);
+    this.reset();
+  });
+</script>
 
 </body>
 </html>
