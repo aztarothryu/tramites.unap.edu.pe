@@ -156,5 +156,40 @@ function generarPDF() {
   doc.save(`acuse-${cut}.pdf`);
 }
 </script>
+<script>
+function generarPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  // Obtener datos desde el DOM
+  const cut    = document.getElementById("cut")?.textContent || "—";
+  const fecha  = document.getElementById("fecha")?.textContent || "—";
+  const estado = document.getElementById("estado")?.textContent || "—";
+  const unidad = document.getElementById("unidad")?.textContent || "—";
+
+  // Encabezado
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(14);
+  doc.text("Universidad Nacional del Altiplano", 105, 20, { align: "center" });
+  doc.setFontSize(12);
+  doc.text("Comprobante de Registro de Expediente", 105, 28, { align: "center" });
+  doc.line(20, 32, 190, 32);
+
+  // Datos del expediente
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(11);
+  doc.text(`CUT: ${cut}`, 20, 45);
+  doc.text(`Fecha de registro: ${fecha}`, 20, 53);
+  doc.text(`Estado: ${estado}`, 20, 61);
+  doc.text(`Unidad responsable: ${unidad}`, 20, 69);
+
+  // Pie de página
+  doc.setFontSize(9);
+  doc.text("Documento generado automáticamente como parte de un proyecto educativo.", 20, 85);
+
+  // Descargar
+  doc.save(`acuse-${cut}.pdf`);
+}
+</script>
 </body>
 </html>
