@@ -74,7 +74,9 @@ Puedes explorar el sistema en línea desde:
 
 ---
 👨‍💻 Créditos
+
 Desarrollado por Alejandro Carlos Escarcena Arnez como parte de un proyecto académico interdisciplinario que integra derecho administrativo, contabilidad pública y desarrollo web.
 
 📄 Licencia educativa
+
 Este proyecto fue creado con fines exclusivamente académicos. No representa una plataforma oficial ni permite realizar trámites reales. Todos los datos, tarifas y documentos son simulados.
