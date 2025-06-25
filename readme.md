@@ -8,13 +8,14 @@ Este proyecto es una simulación académica de un sistema de trámite documentar
 
 ## 📌 Contenido
 
-- [Objetivo](#objetivo)
-- [Tecnologías](#tecnologías)
-- [Estructura del sistema](#estructura-del-sistema)
-- [Marco legal](#marco-legal)
-- [Despliegue](#despliegue)
-- [Capturas de pantalla](#capturas-de-pantalla)
-- [Créditos](#créditos)
+- [🎯 Objetivo](#-objetivo)
+- [🛠️ Tecnologías](#️-tecnologías)
+- [🗂️ Estructura del sistema](#️-estructura-del-sistema)
+- [⚖️ Marco legal aplicado](#-marco-legal-aplicado)
+- [🌐 Despliegue](#-despliegue)
+- [🖼️ Capturas de pantalla](#-capturas-de-pantalla)
+- [👨‍💻 Créditos](#-créditos)
+- [📄 Licencia educativa](#-licencia-educativa)
 
 ---
 
@@ -51,15 +52,17 @@ Simular un sistema institucional que permita:
 - `contacto.html`: Formulario de contacto
 - `tarifas.html`: Tarifas referenciales
 - `login.html`: Acceso simulado
-- `css/avisos.css`: Estilos institucionales
-- `images/`: Logos y recursos gráficos
+- `/css/avisos.css`: Estilos institucionales
+- `/images/`: Logos y recursos gráficos
 
 ---
 
 ## ⚖️ Marco legal aplicado
 
-- **Ley N.º 27444**: Principios de legalidad, transparencia, accesibilidad y simplificación administrativa.
-- **D.L. N.º 1412**: Gobierno Digital, interoperabilidad, trazabilidad y autenticidad documental.
+- **Ley N.º 27444**  
+  Principios de legalidad, transparencia, accesibilidad y simplificación administrativa.
+- **Decreto Legislativo N.º 1412**  
+  Lineamientos de gobierno digital, interoperabilidad, autenticidad, trazabilidad y atención ciudadana.
 
 ---
 
@@ -73,8 +76,8 @@ Puedes explorar el sistema en línea desde:
 
 ## 🖼️ Capturas de pantalla
 
-> Puedes agregar imágenes aquí si lo deseas, por ejemplo:
+> (Opcional) Puedes agregar capturas subiéndolas a una carpeta como `docs/images` y enlazándolas así:
 
 ```markdown
 ![Formulario de registro](docs/images/formulario.png)
-![Consulta de expediente](docs/images/consulta.png)
+![Validación de expediente](docs/images/validacion.png)
