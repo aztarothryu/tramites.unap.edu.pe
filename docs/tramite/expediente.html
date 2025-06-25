@@ -31,6 +31,7 @@
       margin-bottom: 10px;
     }
   </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
@@ -60,7 +61,11 @@
 
   <main>
     <h1>📁 Expediente Administrativo N°1175-2025</h1>
-
+  <div style="text-align: center; margin-bottom: 2em;">
+    <button onclick="generarPDF()" class="btn btn-outline-primary">
+      📄 Descargar comprobante PDF
+    </button>
+  </div>
     <section style="text-align: center; margin-bottom: 2em;">
       <p><strong>Código Único de Trámite (CUT):</strong> EXP-1175-2025</p>
       <p><strong>Fecha de Registro:</strong> 13 de febrero del 2025</p>
@@ -169,6 +174,46 @@
       }
     }
   });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+  function generarPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("Universidad Nacional del Altiplano", 105, 20, { align: "center" });
+    doc.setFontSize(12);
+    doc.text("Comprobante de Registro de Expediente", 105, 28, { align: "center" });
+    doc.line(20, 32, 190, 32);
+
+    doc.setFont("helvetica", "normal");
+    doc.text("CUT: EXP-1175-2025", 20, 45);
+    doc.text("Fecha de Registro: 13 de febrero del 2025", 20, 53);
+    doc.text("Estado: Resuelto", 20, 61);
+    doc.text("Unidad Responsable: Vicerrectorado Académico", 20, 69);
+    doc.text("Detalle del Expediente:", 20, 85);
+
+    const docs = [
+      "1. Solicitud - 13 de febrero del 2025",
+      "2. Informe N.º 174 - 14 de marzo del 2025",
+      "3. Informe N.º 574 - 24 de marzo del 2025",
+      "4. Memorándum - 11 de abril del 2025",
+      "5. Resolución - 11 de abril del 2025"
+    ];
+
+    let y = 95;
+    docs.forEach(linea => {
+      doc.text(`• ${linea}`, 25, y);
+      y += 8;
+    });
+
+    doc.setFontSize(10);
+    doc.text("Documento generado automáticamente como parte de un proyecto educativo.", 20, y + 15);
+
+    doc.save("comprobante-1175-2025.pdf");
+  }
 </script>
 </body>
 </html>
