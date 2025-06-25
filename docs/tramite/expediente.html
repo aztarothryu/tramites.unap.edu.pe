@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../css/avisos.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -31,22 +32,18 @@
       margin-bottom: 10px;
     }
   </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
-  <!-- Comunicado educativo -->
   <div class="aviso-educativo">
    ⚠️ Este sitio web forma parte de un proyecto académico desarrollado por estudiantes de la Universidad Nacional del Altiplano. Su propósito es exclusivamente educativo y no representa una plataforma oficial ni permite realizar trámites reales.
   </div>
 
-  <!-- Encabezado institucional -->
   <header style="background-color: #003366; padding: 1em 0; color: white; text-align: center;">
     <img src="../images/UNAPUNO.png" alt="Logo UNAP" style="height: 60px; vertical-align: middle;" />
     <h1 style="display: inline-block; margin-left: 1em; font-size: 1.5em;">Sistema de Trámite Documentario</h1>
   </header>
 
-  <!-- Navegación principal -->
   <nav style="background-color: #005599; padding: 0.5em; text-align: center;">
     <a href="../menu.html" style="color: white; margin: 0 1em; text-decoration: none;">Inicio</a>
     <a href="../tramite.html" style="color: white; margin: 0 1em; text-decoration: none;">Trámite</a>
@@ -61,11 +58,10 @@
 
   <main>
     <h1>📁 Expediente Administrativo N°1175-2025</h1>
-  <div style="text-align: center; margin-bottom: 2em;">
-    <button onclick="generarPDF()" class="btn btn-outline-primary">
-      📄 Descargar comprobante PDF
-    </button>
-  </div>
+    <div style="text-align: center; margin-bottom: 2em;">
+      <button onclick="generarPDF()" class="btn btn-outline-primary">📄 Descargar comprobante PDF</button>
+    </div>
+
     <section style="text-align: center; margin-bottom: 2em;">
       <p><strong>Código Único de Trámite (CUT):</strong> EXP-1175-2025</p>
       <p><strong>Fecha de Registro:</strong> 13 de febrero del 2025</p>
@@ -73,6 +69,8 @@
       <p><strong>Unidad Responsable:</strong> Vicerrectorado Académico Oficina de Registro y Archivo Académico</p>
       <p style="font-style: italic; color: #555;">Expediente tramitado conforme a la Ley N.º 27444 – Ley del Procedimiento Administrativo General y el D.L. N.º 1412 – Gobierno Digital.</p>
     </section>
+
+    <h2 style="text-align: center; color: #003366;">📎 Documentos del expediente</h2>
 
     <div class="accordion" id="expedienteAccordion">
 
@@ -149,71 +147,9 @@
     </div>
   </main>
 
-  <!-- Pie de página institucional -->
   <footer style="background-color: #003366; color: white; text-align: center; padding: 1em; margin-top: 3em;">
     <p style="margin: 0.5em;">© 2025 Universidad Nacional del Altiplano - Proyecto Educativo</p>
     <p style="margin: 0;">Basado en la Ley N° 27444 y el Decreto Legislativo N° 1412</p>
   </footer>
 
-  <script>
-  document.getElementById("form-consulta").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const correlativo = document.getElementById("correlativo").value.trim();
-    const anio = document.getElementById("anio").value.trim();
-    const cut = `${correlativo}-${anio}`;
-
-    if (cut === "1175-2025") {
-      window.location.href = "expediente-1175.html";
-    } else {
-      const expediente = localStorage.getItem("exp-" + cut);
-      if (expediente) {
-        window.location.href = `expediente.html?cut=${cut}`;
-      } else {
-        document.getElementById("mensaje").textContent = "❌ Código de trámite no encontrado.";
-      }
-    }
-  });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-  function generarPDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(14);
-    doc.text("Universidad Nacional del Altiplano", 105, 20, { align: "center" });
-    doc.setFontSize(12);
-    doc.text("Comprobante de Registro de Expediente", 105, 28, { align: "center" });
-    doc.line(20, 32, 190, 32);
-
-    doc.setFont("helvetica", "normal");
-    doc.text("CUT: EXP-1175-2025", 20, 45);
-    doc.text("Fecha de Registro: 13 de febrero del 2025", 20, 53);
-    doc.text("Estado: Resuelto", 20, 61);
-    doc.text("Unidad Responsable: Vicerrectorado Académico", 20, 69);
-    doc.text("Detalle del Expediente:", 20, 85);
-
-    const docs = [
-      "1. Solicitud - 13 de febrero del 2025",
-      "2. Informe N.º 174 - 14 de marzo del 2025",
-      "3. Informe N.º 574 - 24 de marzo del 2025",
-      "4. Memorándum - 11 de abril del 2025",
-      "5. Resolución - 11 de abril del 2025"
-    ];
-
-    let y = 95;
-    docs.forEach(linea => {
-      doc.text(`• ${linea}`, 25, y);
-      y += 8;
-    });
-
-    doc.setFontSize(10);
-    doc.text("Documento generado automáticamente como parte de un proyecto educativo.", 20, y + 15);
-
-    doc.save("comprobante-1175-2025.pdf");
-  }
-</script>
-</body>
-</html>
+  <
