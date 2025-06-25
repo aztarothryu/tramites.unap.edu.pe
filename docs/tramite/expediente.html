@@ -151,5 +151,21 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById("form-consulta").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const correlativo = document.getElementById("correlativo").value.trim();
+    const anio = document.getElementById("anio").value.trim();
+    const cut = `${correlativo}-${anio}`;
+    const expediente = localStorage.getItem("exp-" + cut);
+
+    if (expediente) {
+      window.location.href = `expediente.html?cut=${cut}`;
+    } else {
+      document.getElementById("mensaje").textContent = "❌ Código de trámite no encontrado.";
+    }
+  });
+</script>
 </body>
 </html>
