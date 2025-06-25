@@ -1,260 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
-    
-<!-- Mirrored from tramites.unap.edu.pe/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 May 2025 10:00:48 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Inicio de Sesión | Sistema de Trámite Documentario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/avisos.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    main {
+      max-width: 500px;
+      margin: 2em auto;
+      padding: 1em;
+      background-color: white;
+      border-radius: 6px;
+    }
+    input {
+      width: 100%;
+      padding: 0.6em;
+      margin-bottom: 1em;
+      font-size: 1em;
+    }
+    button {
+      padding: 0.6em 1.5em;
+      background-color: #005599;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .mensaje-carga {
+      margin-top: 1em;
+      color: #0078D7;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
 
-        <title>Inicio | Trámites</title>
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="jm77Q5c0y3qvszOXEwPiW59g9hqU7joppA56dmTq">
-        <!-- Fonts -->
-        <!-- <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;1,700;1,900&display=swap" rel="stylesheet"> -->
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
-        <!-- Font Awesome CSS -->
-        <link href="../stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Comunicado educativo -->
+  <div class="aviso-educativo">
+    ⚠️ Este sitio web forma parte de un proyecto académico desarrollado por estudiantes de la Universidad Nacional del Altiplano. Su propósito es exclusivamente educativo y no representa una plataforma oficial ni permite realizar trámites reales.
+  </div>
 
-        <!-- css -->
-        <link rel="stylesheet" href="css/web/main.css">
+  <!-- Encabezado institucional -->
+  <header style="background-color: #003366; padding: 1em 0; color: white; text-align: center;">
+    <img src="images/UNAPUNO.png" alt="Logo UNAP" style="height: 60px; vertical-align: middle;" />
+    <h1 style="display: inline-block; margin-left: 1em; font-size: 1.5em;">Sistema de Trámite Documentario</h1>
+  </header>
 
-        <script src="../cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <!-- Navegación principal -->
+  <nav style="background-color: #005599; padding: 0.5em; text-align: center;">
+    <a href="index.html" style="color: white; margin: 0 1em; text-decoration: none;">Inicio</a>
+    <a href="tramite.html" style="color: white; margin: 0 1em; text-decoration: none;">Trámite</a>
+    <a href="nuevo-expediente.html" style="color: white; margin: 0 1em; text-decoration: none;">Registrar Expediente</a>
+    <a href="consulta-expediente.html" style="color: white; margin: 0 1em; text-decoration: none;">Consultar</a>
+    <a href="tarifas.html" style="color: white; margin: 0 1em; text-decoration: none;">Tarifas</a>
+    <a href="tutoriales.html" style="color: white; margin: 0 1em; text-decoration: none;">Tutoriales</a>
+    <a href="validacion.html" style="color: white; margin: 0 1em; text-decoration: none;">Validación</a>
+    <a href="contacto.html" style="color: white; margin: 0 1em; text-decoration: none;">Contacto</a>
+  </nav>
 
-        <!-- Styles -->
-        
-<style type="text/css">
-.comunicado {
-    padding: 20px 30px;
-    border: 1px solid #989898;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    font-size: 15px;
-}
-.comunicado p {
-    margin-bottom: 6px;
-    text-align: justify;
-}
-.imagen {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-}
-</style>
+  <main>
+    <h2>Iniciar Sesión</h2>
+    <p>Acceso simulado para usuarios con correo institucional o como visitante.</p>
 
-        <style>
-            html, body {
-                background-color: #fff;
-                font-family: 'Roboto', sans-serif;
-                height: 100vh;
-                margin: 0;
-            }
-        </style>
-    </head>
-    
-    <body>
-<div class="aviso-educativo">
-  ⚠️ Este sitio web forma parte de un proyecto académico desarrollado por estudiantes de la Universidad Nacional del Altiplano. Su propósito es exclusivamente educativo y no representa una plataforma oficial ni permite realizar trámites reales.
-</div>
-    <header>
-        <div class="header bg-secondary">
-            <div class="container">
+    <form id="form-login">
+      <label for="correo">Correo institucional</label>
+      <input type="email" id="correo" required pattern="^[a-zA-Z0-9._%+-]+@est\.unap\.edu\.pe$" placeholder="usuario@est.unap.edu.pe" />
 
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 text-md-right text-center">
-                    <div class="float-left">
-                                                
-                    </div>
-                        <a href="login.html" class="text-decoration-none text-primary link-white">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            Intranet
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="navigation">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12  text-md-left text-center">
-                        <div class="float-left">
-                            <img src="images/UNAPUNO.png" class="logo" alt="">
-                            <div class="text-center" style="display: inline-block; vertical-align: bottom; margin-left: 10px;">
-                                <b class="font-weight-bold text-dark" style="margin:0;">Universidad Nacional del Altiplano</b>
-                                <p class="text-gray" style="margin:0; font-size: 13px;">Vicerrectorado Académico</p>
-                                <b class="text-gray" style="margin:0; font-size: 13px;">Oficina de Registro y Archivo Académico</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" style="padding: 0;">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="index.html"><i class="fa fa-home"></i></a>
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <div class="divider-nav d-sm-none d-md-block"></div>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tramite" href="tramite.html">Trámites</a>
-                    </li>
-                    <div class="divider-nav d-sm-none d-md-block"></div>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tarifa" href="tarifas.html">Tarifas</a>
-                    </li>
-                    <div class="divider-nav d-sm-none d-md-block"></div>
-                    <li class="nav-item">
-                        <a class="nav-link" id="seguir" href="tramite/ver-estado-tramite.html">Seguimiento</a>
-                    </li>
-                    <div class="divider-nav d-sm-none d-md-block"></div>
-                    
-                    <div class="divider-nav d-sm-none d-md-block"></div>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tutorial" href="tutoriales.html">Tutoriales</a>
-                    </li>
-                    <div class="divider-nav d-sm-none d-md-block"></div>
-                    <li class="nav-item">
-                      <a class="nav-link" id="tutorial" href="validacion.html">Validación de Documento</a>
-                    </li>
-                    <div class="divider-nav d-sm-none d-md-block"></div>
-                    
-                    <!-- tramites tarifas seguimiento de tramite, consultar validez de constania -->
-                  </ul>
-            </div>
-        </div>
-    </nav>
-    <section class="">
-      
-<section class="bg-cover">
-    <!-- <div style="pos" >
-        <div style="position: relative;top:0; width: 100%; height: 400px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(32, 37, 41, 0.6))"></div>
-    </div> -->
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active" >
-                <div style="position: absolute; width: 100%; height: 400px;">
+      <label for="clave">Contraseña</label>
+      <input type="password" id="clave" required />
 
-                    <div style="width: 100%; height: 400px; background-image: linear-gradient(to right, rgba(9, 16, 35, 0.88), rgba(32, 37, 41, 0.2))"></div>
-                </div>
-                <img src="images/slide/slide-1.jpg"  class="d-block w-100" alt="..." >
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Bienvenido a Trámites de Registro y Archivo Académicos</h3>
-                    <p>Selecciona tu trámite y genera tu solicitud de manera virtual </p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div style="position: absolute; width: 100%; height: 400px;">
-                    <div style="width: 100%; height: 400px; background-image: linear-gradient(to right, rgba(9, 16, 35, 0.88), rgba(32, 37, 41, 0.2))"></div>
-                </div>
-                <img src="images/slide/slide-2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Consulta el estado de tu Trámite</h3>
-                    <a href="tramite/ver-estado-tramite.html" class="btn btn-outline-success">Consultar</a>
-                    <p>Puedes consultar tu trámite ingresando tu Código Unico de Tramite (CUT)</p>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</section>
+      <button type="submit">Iniciar sesión</button>
+    </form>
 
-<section>
-    <div class="container"">
-        <div class="row">
-            <div class="col-md-12 box">
-                <div class="row" style="height: 140px;">
-                    <div class="col-md-4 col-xs-12 box-item">
-                        <i class="fa fa-list-alt"></i><h5>Trámite en Linea</h5>
-                        <a href="tramite.html">Tramite aquí</a>
-                    </div>
-                    <div class="col-md-4 col-xs-12 box-item">
-                        <i class="fa fa-search"></i><h5>Consultar Trámite</h5>
-                        <a href="tramite/ver-estado-tramite.html">Consulte aquí</a>
-                    </div>
-                    <div class="col-md-4 col-xs-12 box-item">
-                        <i class="fa fa-money"></i><h5>Costo Documento</h5>
-                        <a href="tarifas.html">Consulte aquí</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <button type="button" onclick="window.location.href='menu.html'" style="margin-top: 0.5em; background-color: #777;">
+      Ingresar como visitante
+    </button>
 
-<!-- Modal -->
-    <div class="modal fade" id="comunicado" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content"> </div>
-        </div>
-    </div>
+    <div id="mensaje-carga" class="mensaje-carga" style="display: none;">🔐 Iniciando sesión...</div>
+  </main>
 
-    </section>
+  <!-- Pie de página institucional -->
+  <footer style="background-color: #003366; color: white; text-align: center; padding: 1em; margin-top: 3em;">
+    <p style="margin: 0.5em;">© 2025 Universidad Nacional del Altiplano - Proyecto Educativo</p>
+    <p style="margin: 0;">Basado en la Ley N° 27444 y el Decreto Legislativo N° 1412</p>
+  </footer>
 
-    <footer class="bg-secondary" style="width: 100%;">
-        <div class="bg-dark" style="margin-top: 20px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <p class="text-white text-center"><small>  © Universidad Nacional del Altiplano, Puno - Perú, 2020.</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <p class="text-white text-center"><small>Oficina de Tecnologías de Información</small></p>
+  <script>
+    document.getElementById("form-login").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-                </div>
-            </div>
-        </div>
-    </footer>
+      const correo = document.getElementById("correo").value.trim();
+      const clave = document.getElementById("clave").value.trim();
+      const mensaje = document.getElementById("mensaje-carga");
 
-    <!-- Modal -->
-    <div class="modal fade" id="advertencia" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class="modal-dialog modal-md" role="document">
-            <div class="modal-content">
-                <div class="col-md-12 text-center">
-                    <br>
-                    <i class="fa fa-exclamation-triangle text-warning" style="font-size:85px;" aria-hidden="true"></i>
-                    <h2>Pagina Web en Construcción</h2>
-                    <img src="images/construccion.png" class="img-fluid" alt="">
+      if (!correo.endsWith("@est.unap.edu.pe")) {
+        alert("⚠️ Solo se permite el acceso con correos institucionales (@est.unap.edu.pe).");
+        return;
+      }
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="loader">
-        <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+      if (correo && clave) {
+        mensaje.style.display = "block";
+        setTimeout(() => {
+          window.location.href = "menu.html";
+        }, 1500);
+      }
+    });
+  </script>
 
-    </div>
-
-        <script src="js/web/main.js"></script>
-        
-<script>
-$(document).ready(function() {
-    $('#comunicado').modal('show')
-});
-</script>
-
-    </body>
-
-<!-- Mirrored from tramites.unap.edu.pe/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 May 2025 10:00:52 GMT -->
+</body>
 </html>
